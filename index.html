@@ -1,1107 +1,723 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pedro Henrique Belchior Alves - Portfólio</title>
+    <title>Pedro Alves — Full Stack Developer</title>
     <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, sans-serif;
-        line-height: 1.6;
-        color: #fff;
-        background: linear-gradient(90deg, #070f1f 0%, #070f1f 100%);
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-
-      a {
-        color: #fff;
-        text-decoration: none;
-      }
-
-      /* Navigation */
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: #070f1f99;
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-        padding: 1rem 0;
-        transition: all 0.3s ease;
-      }
-
-      nav.scrolled {
-        background: #070f1f99;
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
-        background: #fcc942;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-      }
-
-      .nav-links a {
-        color: #fff;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .nav-links a:hover {
-        color: #0000b5;
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
-        background: #fff;
-        transition: width 0.3s ease;
-      }
-
-      .nav-links a:hover::after {
-        width: 100%;
-      }
-
-      /* Hero Section */
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url("https://storage.pixteller.com/designs/designs-images/2019-03-27/05/simple-background-backgrounds-passion-simple-1-5c9b95d2b9dfb.png");
-        opacity: 0.1;
-      }
-
-      .hero-content {
-        z-index: 1;
-        position: relative;
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 2rem;
-      }
-
-      .hero-image {
-        width: 500px;
-        height: 500px;
-        /* border-radius: 50%; */
-        margin: 0 auto 2rem;
-        /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
-        /* background: #ffffff44; */
-        padding: 5px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero-texts {
-        width: 500px;
-        height: 500px;
-        overflow: hidden;
-        /* border-radius: 50%; */
-        margin: 0 auto 2rem;
-        /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
-        /* background: #fff; */
-        /* padding: 5px; */
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-      }
-      .hero-texts h1,
-      .hero-texts p {
-        text-align: left;
-      }
-
-      .hero-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        /* border-radius: 50%; */
-        /* background: #333; */
-      }
-      .hero-image img:hover {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-        transform: scale(1.3);
-        transition: ease-in-out 0.3s;
-      }
-
-      .hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-        background: #fff;
-        /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: fadeInUp 1s ease;
-      }
-
-      .hero-subtitle {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-        animation: fadeInUp 1s ease 0.2s both;
-      }
-
-      .hero-description {
-        font-size: 1.1rem;
-        margin-bottom: 3rem;
-        opacity: 0.8;
-        animation: fadeInUp 1s ease 0.4s both;
-      }
-
-      .cta-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        animation: fadeInUp 1s ease 0.6s both;
-      }
-
-      .btn {
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 50px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .btn-primary {
-        /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
-        background: #fcc942;
-        color: #070f1f;
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-      }
-
-      .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Section Styles */
-      .section {
-        padding: 5rem 0;
-        position: relative;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-        background: #fff;
-        /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      /* About Section */
-      .about {
-        background: rgba(0, 0, 0, 0.1);
-      }
-
-      .about-content {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 3rem;
-        align-items: center;
-      }
-
-      .about-image {
-        width: 100%;
-        max-width: 400px;
-        height: 400px;
-        /* border-radius: 20px; */
-        background: #ffffff44;
-        /* padding: 5px; */
-        position: relative;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-      }
-
-      .about-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* border-radius: 15px; */
-        /* background: #333; */
-      }
-
-      .about-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        opacity: 0.9;
-      }
-
-      /* Experience Grid */
-      .experience-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .experience-card {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 2rem;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .experience-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        opacity: 30%;
-        background: #fcc942;
-      }
-
-      .experience-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      .experience-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        background: #fcc942;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .experience-title {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-      }
-
-      .experience-years {
-        color: #fcc942;
-        margin-bottom: 1rem;
-        font-weight: 500;
-      }
-
-      /* Skills Section */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .skill-item {
-        text-align: center;
-        padding: 1.5rem 1rem;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-
-      .skill-item:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      .skill-icon {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-        background: #fcc942;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .skill-name {
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-
-      /* Contact Section */
-      .contact {
-        background: rgba(0, 0, 0, 0.2);
-      }
-
-      .contact-content {
-        text-align: center;
-      }
-
-      .contact-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-
-      .contact-item {
-        padding: 2rem;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease;
-      }
-
-      .contact-item:hover {
-        transform: translateY(-5px);
-      }
-
-      .contact-item i {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        background: #fcc942;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      /* Footer */
-      footer {
-        text-align: center;
-        padding: 2rem 0;
-        background: rgba(0, 0, 0, 0.3);
-        margin-top: 3rem;
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .social-links a {
-        width: 50px;
-        height: 50px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .social-links a:hover {
-        background: #fcc942;
-        color: black;
-        transform: translateY(-3px);
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease;
-      }
-
-      .animate-on-scroll.animated {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Mobile Responsive */
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .hero-subtitle {
-          font-size: 1.2rem;
-        }
-
-        .about-content {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-
-        .cta-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .btn {
-          width: 100%;
-          max-width: 300px;
-        }
-      }
-
-      /* Floating elements */
-      .floating-shape {
-        position: absolute;
-        opacity: 0.1;
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-20px) rotate(180deg);
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-      <div class="nav-container">
-        <div class="logo">Pedro Henrique</div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#experience">Experiência</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">pedro<span>.</span>dev</div>
+      <ul class="nav-links">
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experiência</a></li>
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+      <a href="mailto:pedro.belchialves2026@gmail.com" class="nav-cta"
+        >Contato</a
+      >
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-glow2"></div>
       <div class="hero-content">
-        <div class="hero-image">
-          <img src="./img/photo.png" alt="Pedro Henrique" />
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Disponível para novas oportunidades
         </div>
-        <div class="hero-texts">
-          <h1>Pedro Henrique Belchior Alves</h1>
-          <div class="hero-subtitle">
-            Desenvolvedor Full Stack & UI/UX Designer
-          </div>
-          <p class="hero-description">
-            Criando experiências digitais excepcionais através de código limpo e
-            design inovador. Especialista em desenvolvimento completo e
-            inteligência artificial.
-          </p>
-          <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">
-              <i
-                target="_blank"
-                href="https://www.instagram.com/pedro.hb_alves/"
-                class="fas fa-rocket"
-              ></i>
-              Vamos Conversar
-            </a>
-            <a href="#about" class="btn btn-secondary">
-              <i class="fas fa-user"></i>
-              Conheça Mais
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-      <div class="container">
-        <h2 class="section-title animate-on-scroll">Sobre Mim</h2>
-        <div class="about-content animate-on-scroll">
-          <div class="about-image">
-            <img src="./img/foto.jpg" alt="Pedro Henrique" />
-          </div>
-          <div class="about-text">
-            <p>
-              Olá! Sou Pedro Henrique, um desenvolvedor apaixonado por
-              tecnologia e design com mais de 9 anos de experiência criando
-              soluções digitais inovadoras. Minha jornada começou com design
-              gráfico e evoluiu para desenvolvimento full-stack e inteligência
-              artificial.
-            </p>
-            <p>
-              Acredito que a tecnologia deve ser intuitiva, bonita e funcional.
-              Por isso, combino minhas habilidades técnicas com um olhar apurado
-              para design, criando experiências que não apenas funcionam
-              perfeitamente, mas também encantam os usuários.
-            </p>
-            <p>
-              Atualmente, estou focado em projetos que envolvem inteligência
-              artificial, automação e desenvolvimento de aplicações modernas que
-              fazem a diferença na vida das pessoas.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-      <div class="container">
-        <h2 class="section-title animate-on-scroll">Experiência</h2>
-        <div class="experience-grid">
-          <div class="experience-card animate-on-scroll">
-            <div class="experience-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3 class="experience-title">Desenvolvedor Full Stack</h3>
-            <div class="experience-years">4 anos</div>
-            <p>
-              Desenvolvimento completo de aplicações web e mobile usando
-              tecnologias modernas como React, Node.js, Next.js e React Native.
-            </p>
-          </div>
-
-          <div class="experience-card animate-on-scroll">
-            <div class="experience-icon">
-              <i class="fas fa-paint-brush"></i>
-            </div>
-            <h3 class="experience-title">UI/UX Design</h3>
-            <div class="experience-years">3 anos</div>
-            <p>
-              Criação de interfaces intuitivas e experiências de usuário
-              excepcionais usando Figma, Photoshop e ferramentas de
-              prototipagem.
-            </p>
-          </div>
-
-          <div class="experience-card animate-on-scroll">
-            <div class="experience-icon">
-              <i class="fas fa-palette"></i>
-            </div>
-            <h3 class="experience-title">Logo Design & Landing Pages</h3>
-            <div class="experience-years">9 anos</div>
-            <p>
-              Desenvolvimento de identidades visuais marcantes e páginas de
-              conversão otimizadas usando HTML, CSS e técnicas avançadas de
-              design.
-            </p>
-          </div>
-
-          <div class="experience-card animate-on-scroll">
-            <div class="experience-icon">
-              <i class="fas fa-robot"></i>
-            </div>
-            <h3 class="experience-title">Engenheiro LLM & IA</h3>
-            <div class="experience-years">2 anos</div>
-            <p>
-              Desenvolvimento de agentes inteligentes, automação com N8N e
-              integração de modelos de linguagem em soluções empresariais.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-      <div class="container">
-        <h2 class="section-title animate-on-scroll">Minhas Skills</h2>
-
-        <h3 style="text-align: center; margin-bottom: 2rem; opacity: 0.9">
-          Desenvolvimento
-        </h3>
-        <div class="skills-grid animate-on-scroll">
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-js-square"></i></div>
-            <div class="skill-name">JavaScript</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-js-square"></i></div>
-            <div class="skill-name">TypeScript</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-node-js"></i></div>
-            <div class="skill-name">Node.js</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-react"></i></div>
-            <div class="skill-name">React</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-react"></i></div>
-            <div class="skill-name">Next.js</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-html5"></i></div>
-            <div class="skill-name">HTML5</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
-            <div class="skill-name">CSS3</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-python"></i></div>
-            <div class="skill-name">Python</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-brands fa-php"></i></div>
-            <div class="skill-name">php</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fas fa-mobile-alt"></i>
-            </div>
-            <div class="skill-name">flutter</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-java"></i></div>
-            <div class="skill-name">Java</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-android"></i></div>
-            <div class="skill-name">Kotlin</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-            <div class="skill-name">Git</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
-            <div class="skill-name">React Native</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-database"></i></div>
-            <div class="skill-name">MySQL</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-database"></i></div>
-            <div class="skill-name">PostgreSQL</div>
-          </div>
-        </div>
-
-        <h3 style="text-align: center; margin: 3rem 0 2rem; opacity: 0.9">
-          Design & Criação
-        </h3>
-        <div class="skills-grid animate-on-scroll">
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fab fa-figma"></i></div>
-            <div class="skill-name">Figma</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
-            <div class="skill-name">Photoshop</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fa-solid fa-pen-nib"></i>
-              <!-- <i class="fab fa-solid fa-pen-nib"></i> -->
-            </div>
-            <div class="skill-name">Illustrator</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-video"></i></div>
-            <div class="skill-name">Premiere</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-magic"></i></div>
-            <div class="skill-name">After Effects</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-cut"></i></div>
-            <div class="skill-name">CapCut</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-palette"></i></div>
-            <div class="skill-name">Logo Design</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-pencil-ruler"></i></div>
-            <div class="skill-name">UI/UX Design</div>
-          </div>
-        </div>
-
-        <h3 style="text-align: center; margin: 3rem 0 2rem; opacity: 0.9">
-          IA & Automação
-        </h3>
-        <div class="skills-grid animate-on-scroll">
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-robot"></i></div>
-            <div class="skill-name">Agentes IA</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-brain"></i></div>
-            <div class="skill-name">LLM Engineering</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-            <div class="skill-name">N8N</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fa-solid fa-terminal"></i>
-            </div>
-            <div class="skill-name">Prompt Engineer</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2 class="section-title animate-on-scroll">Vamos Trabalhar Juntos</h2>
-        <div class="contact-content animate-on-scroll">
-          <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9">
-            Tem um projeto em mente? Vamos conversar sobre como posso ajudar
-            você a transformar suas ideias em realidade digital.
-          </p>
-
-          <div class="contact-info">
-            <a
-              target="_blank"
-              href="mailto:pedro.belchialves2026@gmail.com"
-              class="contact-item"
-            >
-              <i class="fas fa-envelope"></i>
-              <h3>Email</h3>
-              <p>pedro.belchialves2026@gmail.com</p>
-            </a>
-            <a
-              target="_blank"
-              href="https://api.whatsapp.com/send?phone=553599178512"
-              class="contact-item"
-            >
-              <i class="fab fa-whatsapp"></i>
-              <h3>WhatsApp</h3>
-              <p>+55 (35) 999178512</p>
-            </a>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/pedro-henrique-belchior-alves/"
-              class="contact-item"
-            >
-              <i class="fab fa-linkedin"></i>
-              <h3>LinkedIn</h3>
-              <p>/in/pedro-henrique</p>
-            </a>
-          </div>
-
-          <div class="cta-buttons" style="margin-top: 3rem">
-            <a
-              href="mailto:pedro.belchialves2026@gmail.com"
-              class="btn btn-primary"
-            >
-              <i class="fas fa-paper-plane"></i>
-              Enviar Email
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="social-links">
-          <a
-            target="_blank"
-            href="https://github.com/pedro-h-belchialves?tab=repositories"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/pedro-h-belchior-alves-580961290/"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-          <a target="_blank" href="https://www.instagram.com/pedro.hb_alves/"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a target="_blank" href="https://www.behance.net/7c2c1133"
-            ><i class="fab fa-behance"></i
-          ></a>
-          <a target="_blank" href="https://dribbble.com/pedro-h--belchior-alves"
-            ><i class="fab fa-dribbble"></i
-          ></a>
-        </div>
-        <p>
-          &copy; 2024 Pedro Henrique Belchior Alves. Todos os direitos
-          reservados.
+        <h1 class="hero-name">Pedro<br /><span class="accent">Alves</span></h1>
+        <p class="hero-title">
+          <strong>Full Stack Developer</strong> — TypeScript · Node.js · React ·
+          Next.js
         </p>
+        <p class="hero-desc">
+          Desenvolvedor com 5+ anos de experiência construindo aplicações web
+          escaláveis. Especializado em arquitetura limpa, APIs RESTful de alta
+          performance e interfaces modernas.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            Ver Projetos
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            Entre em contato
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Anos de exp.</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">1k+</div>
+            <div class="stat-label">Usuários simultâneos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Empresas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-inner">
+        <p class="section-label reveal">// sobre mim</p>
+        <h2 class="section-title reveal">
+          Construindo sistemas<br />que escalam.
+        </h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              Sou um <strong>Desenvolvedor Full Stack</strong> com sólida
+              experiência em TypeScript, Node.js, React e Next.js. Ao longo dos
+              últimos 5 anos, atuei na construção e evolução de sistemas em
+              produção com foco em escalabilidade e manutenibilidade.
+            </p>
+            <p>
+              Tenho domínio em <strong>Clean Architecture, SOLID e DDD</strong>,
+              aplicando esses princípios no dia a dia para garantir baixo
+              acoplamento e alta coesão no código. Gosto de trabalhar próximo a
+              decisões arquiteturais e contribuir tecnicamente na evolução dos
+              sistemas.
+            </p>
+            <p>
+              Além do desenvolvimento backend, tenho experiência em criar
+              <strong>interfaces modernas e performáticas</strong> com React e
+              Next.js, além de ter participado do desenvolvimento de uma
+              plataforma de streaming de vídeo HLS capaz de atender 1000+
+              usuários simultâneos.
+            </p>
+            <p>
+              Formado em
+              <strong>Análise e Desenvolvimento de Sistemas</strong> pela
+              Unilavras (2025), com inglês e espanhol em nível avançado.
+            </p>
+          </div>
+          <div class="about-highlights reveal">
+            <div class="highlight-item">
+              <div class="highlight-icon">🏗️</div>
+              <div class="highlight-text">
+                <strong>Arquitetura de Software</strong>
+                <span
+                  >Clean Architecture, SOLID, DDD e Design Patterns aplicados em
+                  projetos reais de produção.</span
+                >
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">⚡</div>
+              <div class="highlight-text">
+                <strong>Performance & Escalabilidade</strong>
+                <span
+                  >Otimização de queries SQL, endpoints críticos e distribuição
+                  via CDN com HLS.</span
+                >
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">🔌</div>
+              <div class="highlight-text">
+                <strong>Integrações & APIs</strong>
+                <span
+                  >RESTful APIs com autenticação robusta, validação, tratamento
+                  de erros e integrações externas.</span
+                >
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">🛠️</div>
+              <div class="highlight-text">
+                <strong>DevOps & Infraestrutura</strong>
+                <span
+                  >Docker, Kubernetes e Rancher para orquestração e deploy de
+                  aplicações containerizadas.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-inner">
+        <p class="section-label reveal">// stack técnica</p>
+        <h2 class="section-title reveal">Tecnologias &<br />Ferramentas</h2>
+        <div class="skills-wrapper">
+          <div class="skills-group reveal">
+            <p class="skills-group-title">// core — domínio principal</p>
+            <div class="skills-list">
+              <span class="skill-tag core">TypeScript</span>
+              <span class="skill-tag core">Node.js</span>
+              <span class="skill-tag core">React</span>
+              <span class="skill-tag core">Next.js</span>
+              <span class="skill-tag core">APIs RESTful</span>
+              <span class="skill-tag core">Clean Architecture</span>
+              <span class="skill-tag core">SOLID</span>
+              <span class="skill-tag core">DDD</span>
+            </div>
+          </div>
+          <div class="skills-group reveal">
+            <p class="skills-group-title">// banco de dados & ORM</p>
+            <div class="skills-list">
+              <span class="skill-tag secondary">PostgreSQL</span>
+              <span class="skill-tag secondary">MySQL</span>
+              <span class="skill-tag secondary">Prisma ORM</span>
+              <span class="skill-tag secondary">MongoDB</span>
+            </div>
+          </div>
+          <div class="skills-group reveal">
+            <p class="skills-group-title">// devops & infra</p>
+            <div class="skills-list">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">Rancher</span>
+              <span class="skill-tag">CDN / HLS</span>
+            </div>
+          </div>
+          <div class="skills-group reveal">
+            <p class="skills-group-title">// outras linguagens & padrões</p>
+            <div class="skills-list">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">Spring Boot</span>
+              <span class="skill-tag">Design Patterns</span>
+              <span class="skill-tag">CSR / SSR</span>
+              <span class="skill-tag">LLM / AI Agents</span>
+            </div>
+          </div>
+          <div class="skills-group reveal">
+            <p class="skills-group-title">// idiomas</p>
+            <div class="skills-list">
+              <span class="skill-tag secondary">Inglês — Avançado</span>
+              <span class="skill-tag secondary">Espanhol — Avançado</span>
+              <span class="skill-tag secondary">Português — Nativo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-inner">
+        <p class="section-label reveal">// trajetória</p>
+        <h2 class="section-title reveal">Experiência<br />Profissional</h2>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <p class="timeline-period">07/2022 — 12/2025 · 3 anos e 5 meses</p>
+            <h3 class="timeline-role">Desenvolvedor Full Stack Pleno</h3>
+            <p class="timeline-company">Zolve</p>
+            <ul class="timeline-desc">
+              <li>
+                Desenvolvimento e manutenção de aplicações web com TypeScript,
+                Node.js e React/Next.js.
+              </li>
+              <li>
+                Estruturação de módulos aplicando Clean Architecture, SOLID e
+                Design Patterns.
+              </li>
+              <li>
+                Modelagem de domínio com princípios de DDD (Domain Driven
+                Design).
+              </li>
+              <li>
+                Criação e manutenção de APIs RESTful com autenticação, validação
+                e tratamento estruturado de erros.
+              </li>
+              <li>
+                Otimização de consultas SQL e melhoria de performance de
+                endpoints críticos.
+              </li>
+              <li>
+                Participação no desenvolvimento de uma plataforma de streaming
+                HLS para 1000+ usuários simultâneos, incluindo processamento,
+                segmentação de vídeo e distribuição via CDN.
+              </li>
+              <li>
+                Desenvolvimento de aplicações mobile integradas às APIs da
+                plataforma.
+              </li>
+              <li>
+                Refatoração de código legado para escalabilidade e manutenção de
+                longo prazo.
+              </li>
+              <li>
+                Participação ativa em code reviews e melhoria contínua da base
+                de código.
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div
+              class="timeline-dot"
+              style="
+                background: var(--accent2);
+                box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+              "
+            ></div>
+            <p class="timeline-period" style="color: var(--accent2)">
+              03/2021 — 07/2022 · 1 ano e 4 meses
+            </p>
+            <h3 class="timeline-role">Desenvolvedor Full Stack</h3>
+            <p class="timeline-company">GPR</p>
+            <ul class="timeline-desc">
+              <li>
+                Desenvolvimento de interfaces web com React e TypeScript, foco
+                em componentização e reutilização.
+              </li>
+              <li>
+                Aplicação de padrões de organização de código e separação de
+                responsabilidades.
+              </li>
+              <li>
+                Integração com APIs REST e gerenciamento de estado com Context
+                API e Hooks.
+              </li>
+              <li>
+                Colaboração com designers na implementação de boas práticas de
+                UI/UX.
+              </li>
+              <li>
+                Evolução de código existente aplicando melhorias estruturais.
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div
+              class="timeline-dot"
+              style="
+                background: var(--accent3);
+                box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+              "
+            ></div>
+            <p class="timeline-period" style="color: var(--accent3)">
+              03/2021 — 11/2021 · 8 meses
+            </p>
+            <h3 class="timeline-role">Desenvolvedor Front-End</h3>
+            <p class="timeline-company">Agência Rays</p>
+            <ul class="timeline-desc">
+              <li>Desenvolvimento de sites institucionais e landing pages.</li>
+              <li>
+                Implementação de layouts responsivos com HTML, CSS e JavaScript.
+              </li>
+              <li>Integração de frontend com APIs externas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-inner">
+        <p class="section-label reveal">// portfólio</p>
+        <h2 class="section-title reveal">Projetos em<br />Destaque</h2>
+        <p class="section-sub reveal">
+          Sistemas e plataformas desenvolvidos ao longo da minha trajetória
+          profissional.
+        </p>
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon">📺</div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver projeto">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Plataforma de Streaming HLS</h3>
+            <p class="project-desc">
+              Plataforma de streaming de vídeo baseada em HLS com capacidade
+              para 1000+ usuários simultâneos. Inclui processamento e
+              segmentação de vídeo, distribuição via CDN e controle de acesso.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">HLS</span>
+              <span class="project-tag">CDN</span>
+              <span class="project-tag">React</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon">🔌</div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver projeto">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Gateway de APIs RESTful</h3>
+            <p class="project-desc">
+              Sistema de APIs robustas com autenticação JWT, validação avançada,
+              tratamento estruturado de erros e otimização de queries SQL para
+              alta performance em endpoints críticos.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">Prisma</span>
+              <span class="project-tag">JWT</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon">📱</div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver projeto">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Aplicação Mobile Integrada</h3>
+            <p class="project-desc">
+              Desenvolvimento de aplicação mobile integrada às APIs da
+              plataforma, com estados complexos, componentização reutilizável e
+              sincronização em tempo real com o backend.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">REST API</span>
+              <span class="project-tag">Context API</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon">🏗️</div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver projeto">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Refatoração de Sistema Legado</h3>
+            <p class="project-desc">
+              Projeto de refatoração completa aplicando Clean Architecture,
+              SOLID e DDD. Migração de código acoplado para uma arquitetura
+              modular, resultando em alta manutenibilidade e escalabilidade.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Clean Arch</span>
+              <span class="project-tag">DDD</span>
+              <span class="project-tag">SOLID</span>
+              <span class="project-tag">Design Patterns</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon">🤖</div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver projeto">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">LLM Engineering & AI Agents</h3>
+            <p class="project-desc">
+              Estudo e aplicação de engenharia com Large Language Models e AI
+              Agents, incluindo integração de modelos de linguagem em sistemas
+              backend com Python e Node.js.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">LLMs</span>
+              <span class="project-tag">AI Agents</span>
+              <span class="project-tag">Node.js</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon">🚀</div>
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver projeto">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Infra com Docker & Kubernetes</h3>
+            <p class="project-desc">
+              Containerização e orquestração de aplicações com Docker,
+              Kubernetes e Rancher. Deploy automatizado, escalabilidade
+              horizontal e gerenciamento de clusters em produção.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">Kubernetes</span>
+              <span class="project-tag">Rancher</span>
+              <span class="project-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-inner">
+        <p class="section-label reveal">// contato</p>
+        <h2 class="section-title reveal">Vamos trabalhar<br />juntos?</h2>
+        <div class="contact-inner">
+          <div class="contact-info reveal">
+            <a
+              href="mailto:pedro.belchialves2026@gmail.com"
+              class="contact-item"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="contact-item-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="contact-item-text">
+                <span>Email</span>
+                <strong>pedro.belchialves2026@gmail.com</strong>
+              </div>
+            </a>
+            <a
+              href="tel:+5535999178512"
+              class="contact-item"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="contact-item-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.3 7.61a16 16 0 006.06 6.06l1.97-1.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 13.92z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-item-text">
+                <span>Telefone / WhatsApp</span>
+                <strong>(35) 99917-8512</strong>
+              </div>
+            </a>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="contact-item-text">
+                <span>Localização</span>
+                <strong>Perdões, Minas Gerais — Brasil</strong>
+              </div>
+            </div>
+          </div>
+          <div class="contact-cta reveal">
+            <h3>Aberto a novas oportunidades</h3>
+            <p>
+              Estou buscando uma posição como
+              <strong>Desenvolvedor Pleno</strong> onde possa contribuir
+              tecnicamente para decisões arquiteturais e a evolução contínua de
+              sistemas em produção.
+            </p>
+            <div class="salary">💰 Pretensão salarial: R$ 6.000,00</div>
+            <a
+              href="mailto:pedro.belchialves2026@gmail.com"
+              class="btn-primary"
+              style="width: 100%; justify-content: center"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              Enviar mensagem
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-copy">
+        © 2025 <span>Pedro Alves</span> — Feito com ☕ e muito TypeScript
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Topo</a>
+        <a href="#about">Sobre</a>
+        <a href="#projects">Projetos</a>
+        <a href="#contact">Contato</a>
       </div>
     </footer>
 
-    <script>
-      // Navbar scroll effect
-      window.addEventListener("scroll", function () {
-        const navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-
-      // Animate elements on scroll
-      const animateElements = document.querySelectorAll(".animate-on-scroll");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("animated");
-            }
-          });
-        },
-        {
-          threshold: 0.1,
-        }
-      );
-
-      animateElements.forEach((el) => observer.observe(el));
-
-      // Skill items hover effect
-      document.querySelectorAll(".skill-item").forEach((item) => {
-        item.addEventListener("mouseenter", function () {
-          this.style.transform = "translateY(-5px) scale(1.05)";
-        });
-
-        item.addEventListener("mouseleave", function () {
-          this.style.transform = "translateY(-5px) scale(1)";
-        });
-      });
-
-      // Experience cards stagger animation
-      const experienceCards = document.querySelectorAll(".experience-card");
-      experienceCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.2}s`;
-      });
-
-      // Typing effect for hero subtitle
-      const subtitle = document.querySelector(".hero-subtitle");
-      const text = subtitle.textContent;
-      subtitle.textContent = "";
-
-      let i = 0;
-      function typeWriter() {
-        if (i < text.length) {
-          subtitle.textContent += text.charAt(i);
-          i++;
-          setTimeout(typeWriter, 100);
-        }
-      }
-
-      // Start typing effect after page load
-      window.addEventListener("load", () => {
-        setTimeout(typeWriter, 1000);
-      });
-
-      // Parallax effect for floating shapes
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const shapes = document.querySelectorAll(".floating-shape");
-
-        shapes.forEach((shape, index) => {
-          const speed = 0.5 + index * 0.2;
-          shape.style.transform = `translateY(${scrolled * speed}px) rotate(${
-            scrolled * 0.1
-          }deg)`;
-        });
-      });
-
-      // Contact form interaction (if you add a form later)
-      function showContactSuccess() {
-        alert("Mensagem enviada com sucesso! Entrarei em contato em breve.");
-      }
-
-      // Mobile menu toggle (for future implementation)
-      function toggleMobileMenu() {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.classList.toggle("mobile-open");
-      }
-
-      // Add some interactive particles effect
-      function createParticle() {
-        const particle = document.createElement("div");
-        particle.style.position = "fixed";
-        particle.style.width = "4px";
-        particle.style.height = "4px";
-        particle.style.background = "linear-gradient(45deg, #ff6b6b, #4ecdc4)";
-        particle.style.borderRadius = "50%";
-        particle.style.pointerEvents = "none";
-        particle.style.zIndex = "999";
-        particle.style.opacity = "0.7";
-
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-
-        particle.style.left = x + "px";
-        particle.style.top = y + "px";
-
-        document.body.appendChild(particle);
-
-        // Animate particle
-        let opacity = 0.7;
-        let size = 4;
-        const interval = setInterval(() => {
-          opacity -= 0.02;
-          size += 0.2;
-          particle.style.opacity = opacity;
-          particle.style.width = size + "px";
-          particle.style.height = size + "px";
-
-          if (opacity <= 0) {
-            clearInterval(interval);
-            document.body.removeChild(particle);
-          }
-        }, 50);
-      }
-
-      // Create particles on mouse move (subtle effect)
-      let particleTimer;
-      document.addEventListener("mousemove", (e) => {
-        clearTimeout(particleTimer);
-        particleTimer = setTimeout(() => {
-          if (Math.random() > 0.95) {
-            // Only 5% chance to create particle
-            createParticle();
-          }
-        }, 100);
-      });
-
-      // Smooth reveal animation for sections
-      function revealOnScroll() {
-        const reveals = document.querySelectorAll(
-          ".animate-on-scroll:not(.animated)"
-        );
-
-        reveals.forEach((element) => {
-          const windowHeight = window.innerHeight;
-          const elementTop = element.getBoundingClientRect().top;
-          const elementVisible = 150;
-
-          if (elementTop < windowHeight - elementVisible) {
-            element.classList.add("animated");
-          }
-        });
-      }
-
-      window.addEventListener("scroll", revealOnScroll);
-
-      // Add loading animation
-      window.addEventListener("load", function () {
-        document.body.style.opacity = "0";
-        setTimeout(() => {
-          document.body.style.transition = "opacity 0.5s ease";
-          document.body.style.opacity = "1";
-        }, 100);
-      });
-
-      // Console easter egg
-      console.log(
-        "%c🚀 Olá! Sou Pedro Henrique",
-        "color: #4ecdc4; font-size: 20px; font-weight: bold;"
-      );
-      console.log(
-        "%cSe você está olhando o console, provavelmente somos almas gêmeas! 😄",
-        "color: #ff6b6b; font-size: 14px;"
-      );
-      console.log(
-        "%cVamos conversar sobre projetos incríveis?",
-        "color: #4ecdc4; font-size: 14px;"
-      );
-    </script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
